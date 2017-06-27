@@ -13,7 +13,7 @@
     "gh-pages:stats": "webpack --profile --json > stats.json",
     "dist": "webpack --display-error-details && node-sass style.css dist/style.css",
     "dist:min": "webpack --display-error-details",
-    "dist:modules": "babel ./src --out-dir ./dist-modules",
+    "dist:modules": "babel ./src --out-dir ./dist-modules --presets=es2015,react,stage-2",
     "pretest": "npm run test:lint",
     "preversion": "npm run test && npm run dist && npm run dist:min && git commit --allow-empty -am \"Update dist\"",
     "prepublish": "npm run dist:modules",
@@ -73,7 +73,8 @@
     "webpack-merge": "^0.8.4"
   },
   "peerDependencies": {
-    "react": ">= 0.11.2 < 16.0.0"
+    "react": ">= 0.11.2 < 16.0.0",
+    "prop-types": "^15.0.0"
   },
   "jest": {
     "unmockedModulePathPatterns": [

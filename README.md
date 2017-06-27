@@ -66,11 +66,14 @@ const events = [
     },
 ];
 
+const calendarProps = { weekStart: 1 };
+
 <EventCalendar 
     month={7}
     year={2015}
     events={events} 
     onEventClick={(target, eventData, day) => console.log(eventData) 
+    calendarProps={calendarProps}
     />
 ```
 
@@ -87,6 +90,7 @@ const events = [
 | onEventClick | func(target, eventData, day) |   | Callback for user click on any event node |
 | onEventMouseOver | func(target, eventData, day) |   | Callback for user mouse over on any event node |
 | onEventMouseOut | func(target, eventData, day) |   | Callback for user mouse out on any event node |
+| calendarProps | object |    | Props that will be passed into `Calendar` constructor |
 
 ### Events object 
 The event object can contain any data you wish that may come in use to you later via the supplied Event Callbacks.  There are hoever some required fields that must be populated.  There are also optional data points that can be added to enhance each event.

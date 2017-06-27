@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import {Calendar} from 'calendar-base';
 import classnames from 'classnames';
 
@@ -17,7 +18,7 @@ class EventCalendar extends React.Component {
             today: this.getToday(),
         };
         
-        this.calendar = new Calendar({siblingMonths: true, });
+        this.calendar = new Calendar({siblingMonths: true, ...props.calendarProps});
 
         // Bind methods
         this.getCalendarDays = this.getCalendarDays.bind(this);
@@ -215,17 +216,17 @@ class EventCalendar extends React.Component {
 }
 
 EventCalendar.propTypes = {
-    daysOfTheWeek: React.PropTypes.array,
-    events: React.PropTypes.array,
-    maxEventSlots: React.PropTypes.number,
-    month: React.PropTypes.number.isRequired,
-    onEventClick: React.PropTypes.func,
-    onEventMouseOut: React.PropTypes.func,
-    onEventMouseOver: React.PropTypes.func,
-    onDayClick: React.PropTypes.func,
-    wrapTitle: React.PropTypes.bool,
-    year: React.PropTypes.number.isRequired,
-
+    daysOfTheWeek: PropTypes.array,
+    events: PropTypes.array,
+    maxEventSlots: PropTypes.number,
+    month: PropTypes.number.isRequired,
+    onEventClick: PropTypes.func,
+    onEventMouseOut: PropTypes.func,
+    onEventMouseOver: PropTypes.func,
+    onDayClick: PropTypes.func,
+    wrapTitle: PropTypes.bool,
+    year: PropTypes.number.isRequired,
+    calendarProps: PropTypes.object,
 };
 
 EventCalendar.defaultProps = {
@@ -241,6 +242,7 @@ EventCalendar.defaultProps = {
     events: [],
     wrapTitle: true,
     maxEventSlots: 10,
+    calendarProps: {},
 };
 
 export default EventCalendar;
